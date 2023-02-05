@@ -5,17 +5,36 @@ on:
       - 'vault-unsealer/**'
       - '!vault-unsealer/docs/**'
 jobs:
-  check:
+  check-dockerfile:
     name: Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v3
       - uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: vault-unsealer/Dockerfile
+
+# name: Leaked Secrets Scan
+# on: [pull_request]
+# jobs:
+  leaked-secrets-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: TruffleHog OSS
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --debug --only-verified
+
   deploy:
     name: Deploy vault-unsealer app
-    needs: ["check"]
+    needs: ["check-dockerfile"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
