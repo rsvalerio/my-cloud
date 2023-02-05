@@ -1,0 +1,33 @@
+name: Sanity check terraform code
+on: 
+  pull_request:
+    paths:
+      - 'unsealer-tf/**'
+      - '!unsealer-tf/docs/**'
+jobs:
+  setup:
+    name: Setup environment
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: unsealer
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install asdf
+        uses: asdf-vm/actions/setup@v1
+
+      - name: Install tools with asdf install
+        run: make setup
+
+      - name: Format terraform code
+        run: make fmt
+
+      - name: Init terraform
+        run: make init
+
+      - name: Validate terraform code
+        run: make validate
