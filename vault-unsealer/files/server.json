@@ -1,7 +1,7 @@
 {
   "storage": {
     "file": {
-      "path": "/data/vault-data"
+      "path": "/vault"
     }
   },
   "listener": [
@@ -15,5 +15,10 @@
   "default_lease_ttl": "168h",
   "max_lease_ttl": "720h",
   "ui": true,
-  "disable_mlock": true
+  "disable_mlock": true,
+  "telemetry": {
+    "prometheus_retention_time": "12h",
+    "disable_hostname": true
+  }
+  
 }
