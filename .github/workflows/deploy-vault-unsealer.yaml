@@ -34,7 +34,7 @@ jobs:
 
   deploy:
     name: Deploy vault-unsealer app
-    needs: ["check-dockerfile"]
+    needs: ["check-dockerfile","leaked-secrets-scan"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
