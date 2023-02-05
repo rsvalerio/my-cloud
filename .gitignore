@@ -1,0 +1,8 @@
+k3d
+.history
+.venv
+kubeconfig
+.vscode
+.terraform
+*.plan
+*.out
