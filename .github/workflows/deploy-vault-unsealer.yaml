@@ -5,15 +5,21 @@ on:
       - 'vault-unsealer/**'
       - '!vault-unsealer/docs/**'
 jobs:
-  deploy:
-    name: Deploy vault-unsealer app
+  check:
+    name: Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: vault-unsealer/Dockerfile
+  deploy:
+    name: Deploy vault-unsealer app
+    needs: ["check"]
+    runs-on: ubuntu-latest
+    steps:
+      # - uses: actions/checkout@v2
+      - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only --region ams
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
