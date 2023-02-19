@@ -2,7 +2,7 @@ FROM vault:1.12.2
 
 COPY files/server.json /etc/vault/server.json
 
-RUN "sudo apt update && sudo apt upgrade -y"
+RUN "DEBIAN_FRONTEND=noninteractive sudo apt-get update && sudo apt-get -y upgrade"
 
 ENTRYPOINT [ "vault", "server"]
 
