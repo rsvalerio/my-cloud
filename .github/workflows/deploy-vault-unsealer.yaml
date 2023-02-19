@@ -13,7 +13,7 @@ jobs:
         with:
           dockerfile: vault-unsealer/Dockerfile
 
-  trivy:
+  trivy-security-scan:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
