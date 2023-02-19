@@ -13,23 +13,23 @@ jobs:
         with:
           dockerfile: vault-unsealer/Dockerfile
 
-  trivy-security-scan:
+  trivy:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Build an image from Dockerfile
         run: |
-          docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
+          docker build -t trivy-img:${{ github.sha }} .
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
+          image-ref: "trivy-img:${{ github.sha }}"
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+          severity: 'CRITICAL'
   # build:
   #   runs-on: ubuntu-20.04
   #   steps:
@@ -68,7 +68,7 @@ jobs:
     needs: ["check-dockerfile","leaked-secrets-scan","trivy-security-scan"]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only --region ams
         env:
