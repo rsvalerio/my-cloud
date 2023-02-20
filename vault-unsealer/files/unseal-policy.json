@@ -1,0 +1,16 @@
+{
+  "path": {
+    "transit/encrypt/autounseal": {
+      "capabilities": [
+        "read",
+        "update"
+      ]
+    },
+    "transit/decrypt/autounseal": {
+      "capabilities": [
+        "read",
+        "update"
+      ]
+    }
+  }
+}
