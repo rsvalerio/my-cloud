@@ -4,7 +4,6 @@ module "control_plane" {
   instance_count              = var.instance_count
   instance_display_name       = var.instance_name
   shape                       = var.instance_shape
-  source_type                 = "image"
   source_ocid                 = var.instance_image
   instance_flex_memory_in_gbs = var.instance_mem
   instance_flex_ocpus         = var.instance_cpu
