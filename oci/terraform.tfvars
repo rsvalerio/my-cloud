@@ -1,0 +1,13 @@
+config_file_profile = "~/.oci/config"
+compartment_ocid = "ocid1.compartment.oc1..aaaaaaaaua5ackiptuqp36kl4rvqvmepwlavec2mgwmgugika2qqarbps5la"
+subnet_id = "ocid1.subnet.oc1.uk-london-1.aaaaaaaaydwo2ngekni56rmmfueb7lxxh7feywb3vvcml6xpbluiecggt2rq"
+
+instance_name = "vm1"
+instance_shape = "VM.Standard.A1.Flex"
+instance_availability_domain = "AD-1"
+instance_cpu = "1"
+instance_mem = "2"
+instance_bootdisk_size = [50]
+instance_image = "ocid1.image.oc1.uk-london-1.aaaaaaaacd6wvghqqeocouaahlveplsl4bkutztyz6rstu5bag6limxr5rxa"
+
+ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDTJm1lk0YAAXx5VIelYPL++McX8UEQ04RPsBoBUMjDdxnz+YF9uQlCNXK7zDL5JZjB6+G/Io4+ZfFZwijAq7W6E5Et3OS8pMvK5LqxHt+rRqNi5ndy7NS96p1JuGYgvS0PAUhS31BqZtSwWi2ezwKszvVRWZnhea5gVtldxqH1c0kEL2zGFzllhyVFckM32GLVfDhh/ksRlbOqdPtDYDSzOh6o7LQRPTWecAqjELLSJ/+eazpQ82S2bc/ju4Lc9ggZELXtLeCeHpdl8dnk0yVWX6PV3JINzZtbHnU0mnLlQfIc2mQLPVznvktf+nSepoTpuVH+NJpLD4yfos8wPPG5Jw1eTV3JawOZ/8+097g9001IwbeVsVWApZYc0mS0eVAyp83I2K01JtgNxMxs18delsd0nZ4Tbj75ZAcaCSru5pfFvERx2/LgHEVNZCPQUCfSq5kxZkBqUhr9pH5nDlZa9WQjYf3NopwX7n2997x7NnNfbzg4bbu5cvd1lD/6UzQQjAkPyh1NWXUd/f3Dp+9V+eXaZycdbL4QDuA2D7xQYgbPjaP0rwCfEKKPivA+gU+w6T6vi57ujAWa735FKbTyh/aGlT+Sjq6Q5AMtoO0oSMVqZ/s6HKcoOGLongQc0S+HR0VQHATmk4+sBKk7DO358ERnJ+x6z8fY7eWLl0hgmw=="
